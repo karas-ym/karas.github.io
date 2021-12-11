@@ -23,8 +23,6 @@ function News({ limited }) {
 
     const [cryptoNewsList, setCryptoNewsList] = useState([])
 
-    console.log('cryptoNews:', cryptoNewsList)
-
     useEffect(() => {
 
         setCryptoNewsList(cryptoNews?.value)
@@ -40,6 +38,7 @@ function News({ limited }) {
                     <Col span={24}>
                         <Select
                             showSearch
+                            allowClear
                             className='select-news'
                             placeholder='Select a crypto'
                             optionFilterProp='children'
@@ -47,7 +46,7 @@ function News({ limited }) {
                             filterOption={(input, option) => option.children.toLowerCase().charAt(input.toLowerCase()) >= 0}
                         >
                             <Option value='Cryptocurrency'>Cryptocurrency</Option>
-                            {data?.data?.coins.map(coin => <Option value={coin.name}>{coin.name}</Option>)}
+                            {data?.data?.coins.map(coin => <Option value={coin.name} key={coin.id}>{coin.name}</Option>)}
                         </Select>
                     </Col>
                 )

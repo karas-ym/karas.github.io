@@ -6,7 +6,7 @@ const cryptoNewsHeaders = {
     'x-rapidapi-host': process.env.REACT_APP_NEWS_RAPIDAPI_HOST,
 }
 
-const createRequest = (url) => ({ url, headers: headers })
+const createRequest = (url) => ({ url, headers: cryptoNewsHeaders })
 
 export const cryptoNewsApi = createApi({
     reducerPath: 'cryptoNewsApi',

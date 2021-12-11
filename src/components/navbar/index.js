@@ -8,11 +8,11 @@ import icon from '../../images/cryptocurrency.png'
 function Navbar() {
 
     const [screenSize, setScreenSize] = useState()
-    const [activeMenu, setActiveMenu] = useState(true)
+    const [activeMenu, setActiveMenu] = useState(null)
 
     useEffect(() => {
         const handleResize = () => {
-            setScreenSize(window.innerWith)
+            setScreenSize(window.innerWidth)
             setActiveMenu(true)
         }
 
@@ -47,16 +47,16 @@ function Navbar() {
 
             {activeMenu &&
                 <Menu theme='dark'>
-                    <Menu.Item icon={<HomeOutlined />}>
+                    <Menu.Item icon={<HomeOutlined />} key={'Home'}>
                         <Link to='/'>Home</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<FundOutlined />}>
+                    <Menu.Item icon={<FundOutlined />} key={'Cryptocurrencies'}>
                         <Link to='/Cryptocurrencies'>Cryptocurrencies</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<MoneyCollectOutlined />}>
+                    <Menu.Item icon={<MoneyCollectOutlined />} key={'Exchanges'}>
                         <Link to='/Exchanges'>Exchanges</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<BulbOutlined />}>
+                    <Menu.Item icon={<BulbOutlined />} key={'News'}>
                         <Link to='/News'>News</Link>
                     </Menu.Item>
                 </Menu>
